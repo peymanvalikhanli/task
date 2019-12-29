@@ -15,6 +15,10 @@ class CreateChatGroupsTable extends Migration
     {
         Schema::create('chat_groups', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('Name', 50);
+            $table->bigInteger('Owner');
+            $table->boolean('IsDelete')->default(false);
+            $table->timestamp('CreationDate')->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamps();
         });
     }

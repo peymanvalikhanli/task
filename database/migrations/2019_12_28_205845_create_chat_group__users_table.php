@@ -16,8 +16,13 @@ class CreateChatGroupUsersTable extends Migration
         Schema::create('chat_group__users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('ChatGroupID')->nullable();
-            
-            $table->string('Name', 50)->nullable();
+            $table->bigInteger('UserID')->nullable();
+            $table->integer('Permission')->unsigned();
+            $table->integer('RemoveFromGroup')->unsigned();
+            $table->integer('RemoveBy')->unsigned();
+            $table->timestamp('RemoveDate');
+            $table->integer('LeaveGroup')->unsigned();
+            $table->timestamp('LeaveDate');
             $table->timestamp('CreationDate')->nullable()->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamps();
         });
