@@ -9,6 +9,7 @@ use DB;
 use App\Quotation;
 
 use App\Models\UsersModel;
+use App\Users;
 
 class UsersController extends Controller
 {
@@ -21,5 +22,15 @@ class UsersController extends Controller
     public function userById($id)
     {
         return response()->json(UsersModel::find($id), 200);
+    }
+
+    public function userSave(Request $request){
+        $users = UsersModel::create($request->all());
+        return response()->json($users, 201);
+    }
+
+    public function userUpdate(Requst $request, UsersModel $user){
+        $user->update($request->all());
+        return response()->json($user, 200);
     }
 }

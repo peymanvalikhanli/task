@@ -19,3 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('users', 'Users\UsersController@user');
 Route::get('users/{id}','Users\UsersController@userById');
+Route::post('users', 'Users\UsersController@userSave');
+Route::put('users/{name}', 'Users\UsersController@userUpdate');
