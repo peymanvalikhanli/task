@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Quotation;
 
-use App\Models\UsersModel; 
+use App\Models\UsersModel;
 
 class UsersController extends Controller
 {
@@ -16,5 +16,10 @@ class UsersController extends Controller
     public function user(){
         return response()->json(UsersModel::get(), 200);
         // return response()->json(["test"], 200);
+    }
+
+    public function userById($id)
+    {
+        return response()->json(UsersModel::find($id), 200);
     }
 }
