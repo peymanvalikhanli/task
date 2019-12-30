@@ -33,4 +33,9 @@ class UsersController extends Controller
         $user->update($request->all());
         return response()->json($user, 200);
     }
+
+    public function userDelete(Requst $request, UsersModel $user){
+        $user->delete();
+        return response()->json($user, 204);
+    }
 }

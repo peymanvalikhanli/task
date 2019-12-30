@@ -21,3 +21,4 @@ Route::get('users', 'Users\UsersController@user');
 Route::get('users/{id}','Users\UsersController@userById');
 Route::post('users', 'Users\UsersController@userSave');
 Route::put('users/{users}', 'Users\UsersController@userUpdate');
+Route::delete('users/{users}', 'Users\UsersController@userDelete');
