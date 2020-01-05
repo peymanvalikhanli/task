@@ -29,12 +29,12 @@ class UsersController extends Controller
         return response()->json($users, 201);
     }
 
-    public function userUpdate(Requst $request, UsersModel $user){
+    public function userUpdate(Requst $request, $id){
         $user->update($request->all());
         return response()->json($user, 200);
     }
 
-    public function userDelete(Requst $request, UsersModel $user){
+    public function userDelete(Requst $request,  $id){
         $user->delete();
         return response()->json($user, 204);
     }
